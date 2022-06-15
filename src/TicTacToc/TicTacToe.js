@@ -1,7 +1,11 @@
 import React, {useState} from 'react'
+import { Button } from 'react-bootstrap';
+import { Link, useParams } from 'react-router-dom';
 import './TicTacToe.css';
 
 const TicTacToe = () => {
+    let { params } = useParams();
+
     const [turn, setTurn] = useState('x');
     const [cells, setCells] = useState(Array(9).fill(''));
     const [winner, setWinner] = useState();
@@ -92,7 +96,7 @@ const TicTacToe = () => {
             {winner && (
                 <>
                     <p>{winner} is the winner!</p>
-                    <button onClick={() => handleRestart()}>Play Again</button>
+                    <Button onClick={() => handleRestart()}>Play Again</Button>
                 </>
             )}
         </div>
